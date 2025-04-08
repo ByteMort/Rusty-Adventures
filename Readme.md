@@ -1,2 +1,2 @@
 # Lessons
-Les1   ->  Data Types
+Les1   ->  Variables and Data Types
