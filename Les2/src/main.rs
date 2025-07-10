@@ -48,6 +48,12 @@ fn main() {
     let c:i16 = b.checked_abs().unwrap();
     println!("{}", c);
 
+    let b:i16 = i16::MIN;
+    match b.checked_abs(){
+        Some(val) => print!("{}", val),
+        None => println!("Overflow Error"),
+    };
+
     // If the absolute value overflows, it does not ‘abs’, it returns the value in the beginning
     let d:i8 = i8::MIN;
     let e:i8 = d.wrapping_abs();
