@@ -42,5 +42,5 @@ fn main() {
     let _string1:String = String::from("Hello Guys");
     
     // &Str: contain more than one character
-    let _str1: &str = "Hello World";
+    let _str1:&str = "Hello World";
 }  
