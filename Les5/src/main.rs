@@ -1,3 +1,5 @@
+use std::thread::spawn;
+
 fn main() {
     // Functions
     say_hello();
@@ -20,6 +22,41 @@ fn main() {
 
     let result = apply(add_one, 5);
     println!("Result: {}", result);
+
+    // FnMut
+    let mut name:String = "John".to_string();
+    let mut change_name = |new_name:&str| {
+        name = new_name.to_string();
+    };
+    change_name("Ali");
+    change_name("Mortwain");
+    println!("Name is {}.", name);
+
+    // FnOnce
+    let change = ||{
+        let y = name;
+        y
+    };
+    let new_name = change();
+    println!("New Name {}", new_name);
+
+    // Move
+    let closure = move||{
+        println!("Name in closure: {}", new_name);
+    };
+    closure();
+    // println!("Name {}", new_name);
+
+    // Thread::spawn
+    let message = String::from("Hello from another thread!");
+    let handle = spawn(move || {
+        println!("Inside thread: {}", message);
+    });
+
+    println!("Main thread continues....");
+    handle.join().unwrap();
+
+
 }
 
 fn say_hello(){
