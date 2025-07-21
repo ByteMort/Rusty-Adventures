@@ -1,6 +1,6 @@
 fn main() {
     // Arrays
-    // Arrays collect more than 1 value of the same data type
+    // Allows us to keep the same types of data together
 
     // Define an array
     let mut arr1:[i32; 5] = [0; 5];
