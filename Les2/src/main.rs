@@ -95,4 +95,53 @@ fn main() {
     println!("{}", i32::isqrt(16_i32));
     println!("{}", 16_i32.isqrt());
 
+    // Float Methods
+    let x:f64 = 4.0;
+
+    println!("Sqrt: {}", x.sqrt());
+    println!("Powi: {}", x.powi(2));
+    println!("Powf: {}", x.powf(1.5));
+    println!("EXP: {}", x.exp());
+    println!("Log: {}", x.ln());
+    println!("Log10: {}", x.log10());
+    println!("Log2: {}", x.log2());
+
+    let y:f64 = 3.14159;
+
+    println!("Floor: {}", y.floor());
+    println!("Ceil: {}", y.ceil());
+    println!("Round: {}", y.round());
+    println!("Trunc: {}", y.trunc());
+    println!("Fract: {}", y.fract());
+
+    let z:f64 = -5.0;
+
+    println!("Abs: {}", z.abs());
+    println!("Signum: {}", z.signum());
+    println!("Is Nan: {}", z.is_nan());
+    println!("Is infinite: {}", z.is_infinite());
+    println!("Is finite: {}", z.is_finite());
+
+    // From Float to Integer
+    let a:f64 = 3.7;
+    let b:i32 = a as i32;
+    println!("B: {}", b);
+
+    // From Integer to Float
+    let i:i32 = 42;
+    let f:f64 = i as f64;
+    println!("F: {}", f);
+
+    // From Float32 to Float64 or otherwise
+    let f1:f32 = 3.14;
+    let f2:f64 = f1 as f64;
+    println!("F2: {}", f2);
+
+    // From String to Float
+    let s:&str = "3.5433";
+    let f3:f64 = s.parse::<f64>().unwrap();
+    println!("F3: {}", f3);
+
+    use std::f64::consts;
+    println!("PI: {}", consts::PI);
 }
