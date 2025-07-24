@@ -60,7 +60,7 @@ fn main() {
 
 
     // &str methods
-    let mut s2:&str = "Welcome! Heycome";
+    let s2:&str = "Welcome! Heycome";
 
     // It gives length(byte) of &str
     println!("{:}", s2.len());
