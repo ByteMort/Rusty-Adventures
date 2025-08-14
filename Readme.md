@@ -9,4 +9,4 @@ Les7    ->  Loops
 Les8    ->  Arrays  
 Les9    ->  Tuples  
 Les10   ->  Ownership and Borrowing  
-
+Les11   ->  Structs  

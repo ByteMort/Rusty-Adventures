@@ -67,9 +67,9 @@ fn main() {
     // let msg3 = &mut msg;
     // println!("{}, {}", msg2, msg3);
     
-    let mut s = String::from("HI");
-    // let r1 = &s;
-    // let r2 = &mut s;
+    let _s = String::from("HI");
+    // let r1 = &_s;
+    // let r2 = &mut _s;
     // println!("{}, {}", r1, r2);
 
     let mut data = String::from("Rust");
