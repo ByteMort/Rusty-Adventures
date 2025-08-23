@@ -16,7 +16,7 @@ impl Person{
         println!("Hello, my name is {}", self.name);
     }
 
-    // method with paramseters
+    // method with parameters
     fn have_birthday(&mut self){
         self.age += 1;
     }
