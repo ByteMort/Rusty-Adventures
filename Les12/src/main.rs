@@ -1,8 +1,10 @@
+#[allow(dead_code)]
+
 #[derive(Debug, Copy, Clone)]
 enum Color{
     Red,
     Green,
-    Blue
+    Blue,
 }
 
 #[derive(Debug, Clone)]
@@ -17,8 +19,8 @@ impl Message{
     fn control(&self){
         match self {
             Message::Quit => println!("Left"),
-            //Message::Move{x, y} => println!("Moved x:{}, y:{}", x, y),
-            Message::Move{x, ..} => println!("Moved x:{}", x),
+            Message::Move{x, y} => println!("Moved x:{}, y:{}", x, y),
+            //Message::Move{x, ..} => println!("Moved x:{}", x),
             Message::Text(s) => println!("Text is {}", s),
             Message::Value(a, b, c) => println!("Values: {}, {}, {}", a, b, c),
         }
@@ -26,10 +28,12 @@ impl Message{
 }
 
 // Instead of null we have option enum 
+/*
 enum Option<T>{
     None, 
     Some(T),
 }
+*/
 
 // Struct and Enum
 struct Dog{name:String, age:u8}
@@ -62,7 +66,7 @@ fn main() {
 
     
     let animal1 = Animal::D(Dog{name:"Jack".to_string(), age:10});
-    let animal2 = Animal::C(Cat{name:"Meow".to_string(), color:"White".to_string()});
+    let _animal2 = Animal::C(Cat{name:"Meow".to_string(), color:"White".to_string()});
 
     match animal1 {
         Animal::D(d) => println!("DOG: name:{}, age:{}", d.name, d.age),
