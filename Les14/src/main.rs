@@ -1,6 +1,8 @@
 use std::io::{self, Write};
 
 fn main() {
+    // User Input and Output (I/O)
+
     /*
     println!("Enter a value: ");
 
@@ -70,7 +72,7 @@ fn main() {
                 break;
             },
             Err(_) => {
-                println!("Error : You need to enter a string.");
+                println!("Error : You need to enter a number.");
             }
         }
     }
