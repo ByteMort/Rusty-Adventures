@@ -38,7 +38,7 @@ fn main() {
         y
     };
     let new_name = change();
-    println!("New Name {}", new_name);
+    println!("New Name {}", new_name);  
 
     // Move
     let closure = move||{

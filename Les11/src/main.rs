@@ -65,7 +65,7 @@ fn main() {
 
     println!("Name of person2: {}", person2.name);
     println!("Age of person2: {}", person2.age);
-
+    
     person2.say_hello();
     person2.have_birthday();
 
