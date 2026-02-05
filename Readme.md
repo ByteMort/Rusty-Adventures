@@ -15,3 +15,4 @@ Les13   ->  Error Propagation
 Les14   ->  User Input and Output (I/O)
 Les15   ->  Vectors
 Les16   ->  Collections
+Les17   ->  Smart Pointers
