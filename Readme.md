@@ -12,9 +12,9 @@ Les10   ->  Ownership and Borrowing
 Les11   ->  Structs  
 Les12   ->  Enums  
 Les13   ->  Error Propagation  
-Les14   ->  User Input and Output (I/O)
-Les15   ->  Vectors
-Les16   ->  Collections
-Les17   ->  Smart Pointers
-Les18   ->  Path and PathBuf
-Les19   ->  Folder Handling
+Les14   ->  User Input and Output (I/O)  
+Les15   ->  Vectors  
+Les16   ->  Collections  
+Les17   ->  Smart Pointers  
+Les18   ->  Path and PathBuf  
+Les19   ->  Folder Handling  
