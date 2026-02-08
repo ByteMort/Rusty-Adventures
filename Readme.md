@@ -21,3 +21,4 @@ Les19   ->  Folder Handling
 Les20   ->  File Handling  
 Les21   ->  Async, Await, Tokio
 Les22   ->  DB Connection, Get Schemas, Select query
+Les23   ->  Insert, Update, Delete
