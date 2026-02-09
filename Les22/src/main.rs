@@ -1,3 +1,5 @@
+use core::panic;
+
 use tokio_postgres::{Client, NoTls};
 
 async fn setup_db() -> Client {
@@ -21,7 +23,17 @@ async fn get_schemas(client: &Client){
             "SELECT schema_name
             FROM information_schema.schemata
             ORDER BY schema_name",
-            &[]).await.unwrap();
+            &[]).await;
+    
+    let rows = match rows {
+        Ok(v) => {
+            v
+        },
+        Err(e) => {
+            panic!("Something went wrong! - {e}");
+        }
+    };       
+    
     println!("Schemas:");
     for row in rows{
         let s:String = row.get(0);
@@ -45,8 +57,17 @@ impl User{
 async fn get_users(client: &Client) -> Vec<User> {
     let rows = client.query(
         "SELECT *
-        FROM app.Users;", &[]).await.unwrap();
+        FROM app.Users;", &[]).await;
     
+    let rows = match rows {
+        Ok(v) => {
+            v
+        },
+        Err(e) => {
+            panic!("Something went wrong! - {e}");
+        }
+    };
+
     let mut users:Vec<User> = Vec::new();
     for row in rows{
         let id:i32 = row.get("id");
