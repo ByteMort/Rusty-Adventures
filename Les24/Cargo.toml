@@ -1,0 +1,8 @@
+[package]
+name = "Les24"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "*", features = ["full"]}
+sqlx = { version = "0.8.6", features = ["macros", "postgres", "runtime-tokio"]}
