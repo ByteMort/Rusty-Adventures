@@ -1,0 +1,22 @@
+networks:
+  my_net:
+    driver:  bridge
+
+volumes:
+  data:
+
+services:
+  postgres:
+    image:  postgres:14.20
+    container_name:  postgres_db
+    networks:
+      -  my_net
+    volumes:
+      -  data:/var/lib/postgresql/data
+      -  ./init:/docker-entrypoint-initdb.d
+    environment:
+      -  POSTGRES_USER=mortwain
+      -  POSTGRES_DB=rustDB
+      -  POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      -  "5432:5432"
