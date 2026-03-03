@@ -42,7 +42,7 @@ async fn update_user(client:&Client, user:&User){
         "UPDATE app.Users SET first_name=$1, last_name=$2 WHERE id=$3;",
         &[&user.first_name, &user.last_name, &user.id] ).await;
 
-    match result {
+    match result{
         Ok(v) => {
             println!("{} lines affected!", v);
         },
