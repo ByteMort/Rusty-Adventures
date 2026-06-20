@@ -13,6 +13,7 @@ pub struct Probs{
 }
 
 #[derive(PartialEq)]
+#[allow(dead_code)]
 pub enum Color{
     Normal,
     Ok,
@@ -48,7 +49,7 @@ pub fn main_title(props: &Probs) -> Html{
 
     html!{
         <div class={stylesheet}>
-            <h1 class={props.color.to_string_from_class()}>{&props.title}</h1>
+            <h1 class={&props.color.to_string_from_class()}>{&props.title}</h1>
         </div>
     }
 }
