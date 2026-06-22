@@ -1,20 +1,25 @@
 use std::ops::Deref;
 
 use yew::prelude::*;
+use crate::User;
 use crate::components::atoms::text_input::TextInput;
 use crate::components::atoms::custom_button::CustomButton;
 
 #[derive(Default, Clone)]
-struct Data{
+pub struct Data{
     pub username: String,
     pub count: u32,
+    pub favorite_language: String,
+}
+
+#[derive(Properties, PartialEq)]
+pub struct Props{
+    pub onsubmit: Callback<Data>
 }
 
 #[function_component(CustomForm)]
-pub fn custom_form() -> Html{
-    let on_submit:Callback<SubmitEvent> = Callback::from(|e:SubmitEvent|{
-        e.prevent_default();
-    });
+pub fn custom_form(props: &Props) -> Html{
+    let user_context = use_context::<User>();
 
     // let username_state:UseStateHandle<String> = use_state(|| "No username set".to_string());
     // let button_count_state:UseStateHandle<u32> = use_state(|| 0);
@@ -56,13 +61,37 @@ pub fn custom_form() -> Html{
         );
     });
 
+
+    let cloned_state:UseStateHandle<Data> = state.clone();
+    let language_changed: Callback<String> = Callback::from(move |language: String|{
+        cloned_state.set(
+            Data{
+                favorite_language: language,
+                ..cloned_state.deref().clone()
+            }
+        );
+    });
+
+
+    let submit_clone:Callback<Data> = props.onsubmit.clone();
+    let cloned_state:UseStateHandle<Data> = state.clone();
+    let on_submit:Callback<SubmitEvent> = Callback::from(move |e: SubmitEvent|{
+        e.prevent_default();
+        let data = cloned_state.deref().clone();
+        submit_clone.emit(data);
+    });
+
     html!{
         <>
             <form onsubmit={on_submit}>
-                <TextInput name="username" handle_onchange={username_changed} />
-                <CustomButton label="Count" onclick={button_clicked} />
+                <TextInput name="username" placeholder="Username" handle_onchange={username_changed} />
+                <TextInput name="language" placeholder="Language" handle_onchange={language_changed} />
+                <CustomButton label="Submit" onclick={button_clicked} />
                 <p>{"Username: "}{&state.username}</p>
-                <p>{"Button has been clicked "}{state.count} {" times."}</p>
+                // <p>{"Button has been clicked "}{state.count} {" times."}</p>
+                if let Some(user) = user_context{
+                    <p>{"User: "}{user.username}{", "}{user.fav_language}</p>
+                }
             </form>
         </>
     }

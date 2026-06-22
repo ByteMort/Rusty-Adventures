@@ -1,14 +1,16 @@
 #![allow(non_snake_case)]
 mod components;
+use std::ops::Deref;
+
 use components::atoms::main_title::{MainTitle, Color};
 use components::molecules::custom_form::CustomForm;
-
 // use std::str::FromStr;
 // use serde::{Deserialize, Serialize};
 use stylist::{ /* Style, ast::Sheet, style,*/ yew::styled_component};
 use yew::prelude::*;
-
+use yew::ContextProvider;
 use gloo::console::log;
+use crate::components::molecules::custom_form::Data;
 
 
 // const STYLE_FILE:&str = include_str!("main.css");
@@ -21,7 +23,11 @@ struct MyObject {
 }
 */
 
-
+#[derive(Clone, PartialEq, Default)]
+pub struct User{
+    pub username: String,
+    pub fav_language: String,
+}
 
 #[styled_component(App)]
 pub fn app() -> Html{
@@ -30,13 +36,32 @@ pub fn app() -> Html{
         log!(message)
     });
 
+    /*
+    let customform_submit:Callback<Data> = Callback::from(|data: Data| {
+        log!("Username: ", data.username, " Language: ", data.favorite_language);
+    });
+    */
+    let user_state:UseStateHandle<User> = use_state(|| User::default());
+    let customform_submit:Callback<Data> = {
+        let user_state:UseStateHandle<User> = user_state.clone();
+
+        Callback::from(move |data: Data| {
+            // log!("Username: ", data.username, " Language: ", data.favorite_language);
+            let mut user:User = user_state.deref().clone();
+            user.username = data.username;
+            user.fav_language = data.favorite_language;
+            user_state.set(user);
+        })
+    };
+    // let user:User = User{username: "Mortwain".to_owned(), fav_language: "Rust".to_owned()};
+
     html!{
-        <div>
+        <ContextProvider<User> /*context={user}*/ context={user_state.deref().clone()}>
             <MainTitle title="hi there" 
                 color={Color::Ok} 
                 on_load={main_title_load}/>
-            <CustomForm />
-        </div>
+            <CustomForm onsubmit={customform_submit} />
+        </ContextProvider<User>>
     }
 }
 
