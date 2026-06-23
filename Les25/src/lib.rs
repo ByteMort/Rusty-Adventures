@@ -11,6 +11,9 @@ use yew::prelude::*;
 use yew::ContextProvider;
 use gloo::console::log;
 use crate::components::molecules::custom_form::Data;
+mod router;
+use crate::router::{switch, Route};
+use yew_router::prelude::*;
 
 
 // const STYLE_FILE:&str = include_str!("main.css");
@@ -41,6 +44,17 @@ pub fn app() -> Html{
         log!("Username: ", data.username, " Language: ", data.favorite_language);
     });
     */
+
+    let first_load: UseStateHandle<bool> = use_state(|| true);
+    use_effect(move || {
+        // the code will run in first render and in all re-renders
+
+        if *first_load{
+            // Do ur task in first load
+            first_load.set(false);
+        }
+    });
+
     let user_state:UseStateHandle<User> = use_state(|| User::default());
     let customform_submit:Callback<Data> = {
         let user_state:UseStateHandle<User> = user_state.clone();
@@ -61,6 +75,9 @@ pub fn app() -> Html{
                 color={Color::Ok} 
                 on_load={main_title_load}/>
             <CustomForm onsubmit={customform_submit} />
+            <BrowserRouter>
+                <Switch <Route> render={|route: Route| switch(&route)} />
+            </BrowserRouter>
         </ContextProvider<User>>
     }
 }
