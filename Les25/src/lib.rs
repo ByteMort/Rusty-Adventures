@@ -78,6 +78,7 @@ pub fn app() -> Html{
             <BrowserRouter>
                 <Switch <Route> render={|route: Route| switch(&route)} />
             </BrowserRouter>
+            
         </ContextProvider<User>>
     }
 }
