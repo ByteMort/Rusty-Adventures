@@ -23,6 +23,7 @@ Les21   ->  Async, Await, Tokio
 Les22   ->  DB Connection, Get Schemas, Select query  
 Les23   ->  Insert, Update, Delete  
 Les24   ->  SQLX: (DB Connection, Select, Insert, Update, Delete)  
-Les25   ->  YEW: (H1, ConsoleLog, Conditionals, Loops, Style, Components, Properties, Callbacks, Form  
+Les25   ->  YEW: H1, ConsoleLog, Conditionals, Loops, Style, Components, Properties, Callbacks, Form  
 Les25   ->  Use State Hook, Submit Form Event, Use Context Hook, Use Effect Hook, Routing, Internal Links  
 Les25   ->  Struct Components, Struct Components Styles, Struct Components life cycle methods  
+Les26   ->  YewDux  

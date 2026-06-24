@@ -1,22 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World In Yew</title>
-    <style>
-        html, body{
-            background-color: black;
-            color: white;
-        }
-    </style>
-<link rel="modulepreload" href="/Les25-bfe815aab11056c2.js" crossorigin="anonymous" integrity="sha384-S6nVD10JKiTFMlT2QnCWL+EFNXnNOeOqm+tDCX0tUIv7mw8OtW7YiAY90zk3dJim"><link rel="preload" href="/Les25-bfe815aab11056c2_bg.wasm" crossorigin="anonymous" integrity="sha384-ReP/lqXnX/j6B35DOqth07MjvPPeqCoO5kzRPV/WfGTVj+VH88JTXmog+DfhtLN3" as="fetch" type="application/wasm"></head>
-<body>
-    
-
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Yewdux</title>
+        
 <script type="module">
-import init, * as bindings from '/Les25-bfe815aab11056c2.js';
-const wasm = await init({ module_or_path: '/Les25-bfe815aab11056c2_bg.wasm' });
+import init, * as bindings from '/Les26-cf04c03a73b1a513.js';
+const wasm = await init({ module_or_path: '/Les26-cf04c03a73b1a513_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -24,7 +15,15 @@ window.wasmBindings = bindings;
 
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
-</script><script>"use strict";
+</script>
+        <style>
+            body, html{
+                background-color: black;
+                color: wheat;
+            }
+        </style>
+    <link rel="modulepreload" href="/Les26-cf04c03a73b1a513.js" crossorigin="anonymous" integrity="sha384-LbTKZ4EXtVElEqXLMmeHSRp4pchZfgvpDV9CN25oXsdj81n3vSI3+QjZEpSR6rfB"><link rel="preload" href="/Les26-cf04c03a73b1a513_bg.wasm" crossorigin="anonymous" integrity="sha384-ZGgKjZMQsXn1N41WI9MJxwXrvn//HViWEZOsBTfebXI1SPbVd7AXmyvmTGY4799e" as="fetch" type="application/wasm"></head>
+    <body><script>"use strict";
 
 (function () {
 
